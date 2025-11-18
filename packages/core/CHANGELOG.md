@@ -1,5 +1,11 @@
 # @sylphx/workflow-test-core
 
+## 0.1.4
+
+### Patch Changes
+
+- 47fecfb: Test automatic workspace dependency resolution in workflow
+
 ## 0.1.3
 
 ### Patch Changes
