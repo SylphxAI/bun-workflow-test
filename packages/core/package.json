@@ -1,6 +1,6 @@
 {
   "name": "@sylphx/workflow-test-core",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Core library for workflow test (depends on utils)",
   "type": "module",
   "main": "./dist/index.js",
