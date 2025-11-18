@@ -22,7 +22,7 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@sylphx/workflow-test-utils": "workspace:*"
+    "@sylphx/workflow-test-utils": "workspace:^"
   },
   "devDependencies": {
     "typescript": "^5.9.3",
