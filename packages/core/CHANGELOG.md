@@ -1,5 +1,13 @@
 # @sylphx/workflow-test-core
 
+## 0.1.2
+
+### Patch Changes
+
+- 23d6f9c: Test workspace dependency resolution with updated workflow
+- Updated dependencies [23d6f9c]
+  - @sylphx/workflow-test-utils@0.1.1
+
 ## 0.1.1
 
 ### Patch Changes
