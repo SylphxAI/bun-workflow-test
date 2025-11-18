@@ -1,0 +1,29 @@
+{
+  "name": "@sylphx/workflow-test-utils",
+  "version": "0.0.1",
+  "description": "Utility functions for workflow test",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "vitest": "^2.0.0"
+  },
+  "license": "MIT"
+}

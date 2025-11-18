@@ -1,0 +1,32 @@
+{
+  "name": "@sylphx/workflow-test-core",
+  "version": "0.0.1",
+  "description": "Core library for workflow test (depends on utils)",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@sylphx/workflow-test-utils": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "vitest": "^2.0.0"
+  },
+  "license": "MIT"
+}
