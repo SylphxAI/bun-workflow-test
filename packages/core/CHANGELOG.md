@@ -1,5 +1,11 @@
 # @sylphx/workflow-test-core
 
+## 0.1.3
+
+### Patch Changes
+
+- 3843e77: Use npm for changeset publish to properly resolve workspace dependencies
+
 ## 0.1.2
 
 ### Patch Changes
