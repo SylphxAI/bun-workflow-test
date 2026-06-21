@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "project": {
+    "repo": "SylphxAI/bun-workflow-test",
+    "name": "Bun Workflow Test Monorepo",
+    "lifecycle": "active",
+    "layer": "tooling",
+    "summary": "Tooling fixture that verifies the shared Bun release workflow against a small workspace-package monorepo.",
+    "goals": [
+      "Provide a real Bun workspace monorepo for validating shared release workflow behavior.",
+      "Exercise workspace protocol dependency resolution between @sylphx/workflow-test-core and @sylphx/workflow-test-utils.",
+      "Publish test packages through the shared Sylphx release workflow when release changes are present."
+    ],
+    "nonGoals": [
+      "Own a production application or customer-facing SDK.",
+      "Own the shared release workflow implementation.",
+      "Own enterprise engineering doctrine, standards, or project manifest schema."
+    ]
+  },
+  "boundaries": {
+    "owns": [
+      {
+        "name": "bun-release-workflow-fixture",
+        "description": "Small Bun workspace monorepo used to verify release workflow behavior and workspace dependency publishing."
+      },
+      {
+        "name": "workflow-test-packages",
+        "description": "Public npm test packages @sylphx/workflow-test-core and @sylphx/workflow-test-utils."
+      }
+    ],
+    "doesNotOwn": [
+      "Shared release workflow implementation owned by SylphxAI/.github.",
+      "Production application behavior or customer-facing product SDKs.",
+      "Enterprise doctrine and manifest schema owned by SylphxAI/doctrine."
+    ],
+    "publicSurfaces": [
+      {
+        "type": "package-export",
+        "name": "@sylphx/workflow-test-core",
+        "location": "packages/core/package.json#exports[\".\"]"
+      },
+      {
+        "type": "package-export",
+        "name": "@sylphx/workflow-test-utils",
+        "location": "packages/utils/package.json#exports[\".\"]"
+      },
+      {
+        "type": "workflow",
+        "name": "Release workflow caller",
+        "location": ".github/workflows/release.yml"
+      },
+      {
+        "type": "documentation",
+        "name": "Workspace fixture README",
+        "location": "README.md"
+      }
+    ],
+    "allowedDependencies": [
+      {
+        "repo": "SylphxAI/.github",
+        "surface": "reusable release workflow",
+        "direction": "peer-public"
+      },
+      {
+        "repo": "SylphxAI/doctrine",
+        "surface": "project manifest schema and engineering doctrine",
+        "direction": "peer-public"
+      }
+    ],
+    "forbiddenCouplings": [
+      "Do not treat this fixture as a product SDK or customer runtime.",
+      "Do not change shared release workflow semantics here; update SylphxAI/.github and verify through this fixture.",
+      "Do not fork doctrine standards into this repository."
+    ]
+  },
+  "documentation": {
+    "adr": {
+      "path": "docs/adr/",
+      "status": "planned"
+    },
+    "specs": {
+      "path": "docs/specs/",
+      "status": "planned"
+    },
+    "catalog": {
+      "path": ".doctrine/project.json",
+      "status": "present"
+    },
+    "runbooks": {
+      "path": "docs/runbooks/",
+      "status": "not-applicable"
+    },
+    "generatedReferences": {
+      "path": "README.md",
+      "status": "present"
+    }
+  },
+  "delivery": {
+    "ciModel": "none",
+    "requiredContexts": [],
+    "deployPath": "Pushes to main run .github/workflows/release.yml, which calls the SylphxAI/.github reusable release workflow and publishes test packages when release changes are present.",
+    "productionProof": "Successful GitHub Release workflow on main plus npm package readback for @sylphx/workflow-test-core and @sylphx/workflow-test-utils when a publish occurs.",
+    "recoveryClass": "forward-fix-only"
+  },
+  "adoption": {
+    "status": "baseline",
+    "gaps": [
+      {
+        "id": "release-caller-not-required",
+        "description": "Main has a release workflow caller but no required PR admission or postsubmit proof contexts; keep this explicit until ADR-29 admission is adopted or intentionally exempted for the fixture.",
+        "owner": "SylphxAI/bun-workflow-test",
+        "target": "central ADR-29 required-context rollout or documented fixture exemption"
+      },
+      {
+        "id": "workflow-fixture-runbook",
+        "description": "No runbook explains how to interpret fixture release runs or npm readback after shared workflow changes.",
+        "owner": "SylphxAI/bun-workflow-test",
+        "target": "before the next shared release workflow contract change."
+      }
+    ]
+  }
+}
