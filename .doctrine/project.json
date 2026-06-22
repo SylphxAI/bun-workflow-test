@@ -5,6 +5,7 @@
     "name": "Bun Workflow Test Monorepo",
     "lifecycle": "active",
     "layer": "tooling",
+    "policyPool": "agent-tool",
     "summary": "Tooling fixture that verifies the shared Bun release workflow against a small workspace-package monorepo.",
     "goals": [
       "Provide a real Bun workspace monorepo for validating shared release workflow behavior.",
@@ -97,6 +98,7 @@
   },
   "delivery": {
     "ciModel": "none",
+    "deployable": false,
     "requiredContexts": [],
     "deployPath": "Pushes to main run .github/workflows/release.yml, which calls the SylphxAI/.github reusable release workflow and publishes test packages when release changes are present.",
     "productionProof": "Successful GitHub Release workflow on main plus npm package readback for @sylphx/workflow-test-core and @sylphx/workflow-test-utils when a publish occurs.",
