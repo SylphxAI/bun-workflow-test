@@ -9,5 +9,5 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
-    uses: SylphxAI/.github/.github/workflows/release.yml@feat/release-delegates-to-changesets
+    uses: SylphxAI/.github/.github/workflows/release.yml@main
     secrets: inherit
