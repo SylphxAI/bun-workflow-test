@@ -1,5 +1,11 @@
 # @sylphx/workflow-test-core
 
+## 0.1.5
+
+### Patch Changes
+
+- 9f514a0: Validate: reusable release.yml delegates to changesets + caller grants permissions.
+
 ## 0.1.4
 
 ### Patch Changes
